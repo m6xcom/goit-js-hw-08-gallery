@@ -25,8 +25,10 @@ const imgInModal = document.querySelector(".lightbox__image");
 
 const openModal = function (event) {
   event.preventDefault();
-  modalBox.classList.add("is-open");
-  imgInModal.src = event.target.dataset.source;
+  if (event.target.nodeName === "IMG") {
+    modalBox.classList.add("is-open");
+    imgInModal.src = event.target.dataset.source;
+  }
 };
 const closeModal = function () {
   modalBox.classList.remove("is-open");
